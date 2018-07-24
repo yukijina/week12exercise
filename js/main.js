@@ -18,19 +18,45 @@ function tenRandomNums() {
 }
 
 //No.7
-function newTime() {
-  var da = getDate();
-  var hr = getHours();
-  var min = getMinutes();
-
-  return (da +':' + hr + ':' + min);
-
-}
+function wholedate() {
+  var d = new Date();
+  var hr = d.getHours()
+  var m = d.getMinutes()
+  return d + " | " + hr + " | " + m + " end";
+};
 
 
+//No.8 hh:mm:ss format
+function currentTime() {
+  var now = new Date();
+  var hr = now.getHours();
+  var m = now.getMinutes();
+  var s = now.getSeconds();
+  var month = now.getMonth();
+  var day = now.getDate();
+  var year = now.getFullYear();
 
+  //add 1 to number of Month (because month is displayed by index eg. 0=January)
+   function addOne(time) {
+     if (time < 12) {
+         return time + 1;
+     } else {
+       return time
+     }
+   } myMonth = addOne(month)
 
+  //add 0 when time is single digit
+  function addZero(time) {
+    if (time < 10) {
+        return "0" + time;
+    } else {
+      return time
+    }
+  }  myHr = addZero(hr)
+     myM = addZero(m)
+     myS = addZero(s)
+     myDay = addZero(day)
+     newMonth = addZero(myMonth)
 
-
-
-//No.
+    return myHr + ":" + myM + ":" + myS + "  is current time!" + " & today is: " + newMonth + "/" + myDay + "/" + year;
+};
