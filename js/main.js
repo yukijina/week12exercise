@@ -25,6 +25,7 @@ function wholedate() {
   return d + " | " + hr + " | " + m + " end";
 };
 
+var t = document.getElementById('time');
 
 //No.8 hh:mm:ss format
 function currentTime() {
@@ -35,6 +36,8 @@ function currentTime() {
   var month = now.getMonth();
   var day = now.getDate();
   var year = now.getFullYear();
+
+
 
   //add 1 to number of Month (because month is displayed by index eg. 0=January)
    function addOne(time) {
@@ -52,11 +55,20 @@ function currentTime() {
     } else {
       return time
     }
-  }  myHr = addZero(hr)
+  }
+    myHr = addZero(hr)
      myM = addZero(m)
      myS = addZero(s)
      myDay = addZero(day)
      newMonth = addZero(myMonth)
 
-    return myHr + ":" + myM + ":" + myS + "  is current time!" + " & today is: " + newMonth + "/" + myDay + "/" + year;
+     return myHr + ":" + myM + ":" + myS + "  is current time!" + " & today is: " + newMonth + "/" + myDay + "/" + year;
 };
+
+
+//No.11 show current time in p element
+// t.textContent = currentTime()
+//No.12 setTimeout. it displayed in 1sec
+  setTimeout(function(){
+    t.textContent = currentTime()
+  }, 1000)
